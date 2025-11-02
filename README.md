@@ -1,8 +1,9 @@
-## Getting Started
+## 5x5 Tic-Tac-Toe
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+5x5 Tic-Tac-Toe grid, with four in a row required to win. Followed Kenny Yip's 3x3 Tic-Tac-Toe tutorial to start, but made it 5x5 on my own and added restart button.
+Great learning experience, code may be inefficient/unoptimized.
 
-## Folder Structure
+<!-- ## Folder Structure
 
 The workspace contains two folders by default, where:
 
@@ -15,4 +16,4 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 ## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies). -->
