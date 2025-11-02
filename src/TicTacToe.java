@@ -100,18 +100,18 @@ public class TicTacToe {
     }
 
     void checkWinner() {
-        checkHorizontal();
-        checkVertical();
-        checkDiagonal();
-        checkUpperDiagonal();
-        checkLowerDiagonal();
-        checkAntiDiagonal();
-        checkAntiUpperDiagonal();
-        checkAntiLowerDiagonal();
+        if (checkHorizontal()) return;
+        if (checkVertical()) return;
+        if (checkDiagonal()) return;
+        if (checkUpperDiagonal()) return;
+        if (checkLowerDiagonal()) return;
+        if (checkAntiDiagonal()) return;
+        if (checkAntiUpperDiagonal()) return;
+        if (checkAntiLowerDiagonal()) return;
         checkDraw();
     }
 
-    void checkHorizontal() {
+    boolean checkHorizontal() {
         for (int r = 0; r < 5; r++) {
             // use set for list without duplicates
             Set<JButton> xWinnerList = new HashSet<>();
@@ -141,17 +141,19 @@ public class TicTacToe {
                     setWinner(tile);
                 }
                 gameOver = true;
-                return;
+                return true;
             } else if (oCounter >= 3) {
                 for (JButton tile : oWinnerList) {
                     setWinner(tile);
                 }
                 gameOver = true;
-            }
+                return true;
+            } 
         }
+        return false;
     }
 
-    void checkVertical() {
+    boolean checkVertical() {
         for (int c = 0; c < 5; c++) {
             Set<JButton> xWinnerList = new HashSet<>();
             Set<JButton> oWinnerList = new HashSet<>();
@@ -177,17 +179,19 @@ public class TicTacToe {
                     setWinner(tile);
                 }
                 gameOver = true;
-                return;
+                return true;
             } else if (oCounter >= 3) {
                 for (JButton tile : oWinnerList) {
                     setWinner(tile);
                 }
                 gameOver = true;
+                return true;
             }
         }
+        return false;
     }
 
-    void checkDiagonal() {
+    boolean checkDiagonal() {
         Set<JButton> xWinnerList = new HashSet<>();
         Set<JButton> oWinnerList = new HashSet<>();
         int xCounter = 0;
@@ -213,16 +217,18 @@ public class TicTacToe {
                 setWinner(button);
             }
             gameOver = true;
-            return;
+            return true;
         } else if (oCounter >= 3) {
             for (JButton button : oWinnerList) {
                 setWinner(button);
             }
             gameOver = true;
+            return true;
         }
+        return false;
     }
 
-    void checkUpperDiagonal() {
+    boolean checkUpperDiagonal() {
         int counter = 0;
         for (int c = 2; c < 5; c++) {
             int r = c - 1;
@@ -237,10 +243,12 @@ public class TicTacToe {
                 setWinner(board[r][c]);
             }
             gameOver = true;
+            return true;
         }
+        return false;
     }
 
-    void checkLowerDiagonal() {
+    boolean checkLowerDiagonal() {
         int counter = 0;
         for (int r = 2; r < 5; r++) {
             int c = r - 1;
@@ -255,10 +263,12 @@ public class TicTacToe {
                 setWinner(board[r][c]);
             }
             gameOver = true;
+            return true;
         }
+        return false;
     }
 
-    void checkAntiDiagonal() {
+    boolean checkAntiDiagonal() {
         Set<JButton> xWinnerList = new HashSet<>();
         Set<JButton> oWinnerList = new HashSet<>();
         int xCounter = 0;
@@ -284,16 +294,18 @@ public class TicTacToe {
                 setWinner(button);
             }
             gameOver = true;
-            return;
+            return true;
         } else if (oCounter >= 3) {
             for (JButton button : oWinnerList) {
                 setWinner(button);
             }
             gameOver = true;
+            return true;
         }
+        return false;
     }
 
-    void checkAntiUpperDiagonal() {
+    boolean checkAntiUpperDiagonal() {
         int counter = 0;
         for (int c = 1; c < 4; c++) {
             int r = 3 - c;
@@ -308,10 +320,12 @@ public class TicTacToe {
                 setWinner(board[r][c]);
             }
             gameOver = true;
+            return true;
         }
+        return false;
     }
 
-    void checkAntiLowerDiagonal() {
+    boolean checkAntiLowerDiagonal() {
         int counter = 0;
         for (int c = 2; c < 5; c++) {
             int r = 5 - c;
@@ -326,7 +340,9 @@ public class TicTacToe {
                 setWinner(board[r][c]);
             }
             gameOver = true;
+            return true;
         }
+        return false;
     }
 
     void checkDraw() {
